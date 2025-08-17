@@ -1,0 +1,525 @@
+{
+  "name": "Yadah/Ignite 2025 Registeration",
+  "nodes": [
+    {
+      "parameters": {
+        "operation": "addLabels",
+        "messageId": "={{ $json.id }}",
+        "labelIds": [
+          "Label_6643024480225478891"
+        ]
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        1856,
+        416
+      ],
+      "id": "6b2c8019-1b08-4f77-a8b6-5aab7779e285",
+      "name": "Add Label",
+      "webhookId": "f007e887-2e21-4916-b58e-c25cb1c46a52",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "Di6nf8kpW54sYxLa",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $json.Email }}",
+        "subject": "You’re Registered! Get Ready for Ignite Conference 2025 – Rising Above The Tide",
+        "emailType": "text",
+        "message": "=Hello Pastor {{ $json[\"Full Name\"].split(\" \").slice(-1)[0] }},\n\nThank you for registering for Ignite Conference 2025, a life-changing gathering themed “Rising Above The Tide.” We’re excited to have you with us.\n\n📍 Venue: FirstLove Assembly, Rumuokwuta, Port Harcourt, Rivers State\n📅 Dates: Wednesday 27th – Sunday 31st August, 2025\n\nYou are warmly invited to join us for the Yadah 5.0 Concert on Wednesday 27th August at 5:00PM—an evening of worship and praise to kick off the conference.\n\nSchedule Highlights:\n\nThursday 28th August: 5:00PM & 5:30PM\nFriday 29th August: 9:00AM & 5:30PM\nSunday 31st August: 7:30AM\n\nThis year’s conference will be a powerful time of revival, teaching, and worship—you won’t want to miss it!\n\nWe look forward to seeing you!.\n\nIgnite Conference 2025 Team",
+        "options": {
+          "appendAttribution": false,
+          "senderName": "FLA Yadah/Ignite 2025"
+        }
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        944,
+        128
+      ],
+      "id": "e6ffbca5-1608-478b-ab3a-fcd37fe9ad70",
+      "name": "Pastors",
+      "webhookId": "9b1e6957-9ae3-4570-879b-04bd5a91a357",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "Di6nf8kpW54sYxLa",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $json.Email }}",
+        "subject": "You’re Registered! Get Ready for Ignite Conference 2025 – Rising Above The Tide",
+        "emailType": "text",
+        "message": "=Hello {{ $json[\"Full Name\"].split(\" \").slice(-1)[0] }},\n\nThank you for registering for Ignite Conference 2025, a life-changing gathering themed “Rising Above The Tide”.\n\n📍 Venue: FirstLove Assembly, Rumuokwuta, Port Harcourt, Rivers State\n📅 Dates: Wednesday 27th – Sunday 31st August, 2025\n\n✨ Special Invitation: On the opening day, Wednesday 27th August at 5:00PM, you are also warmly invited to join us for the Yadah 5.0 Concert—an evening of intense worship and praise to kick off the conference.\n\n⏰ Schedule Highlights:\nThurs 28th: 5:00PM & 5:30PM\nFri 29th Aug: 9:00AM & 5:30PM\nSun 31st Aug: 7:30AM\n\nThis year’s conference will be a powerful time of revival, teaching, and worship—you don’t want to miss it!\n\nWe can’t wait to see you!\n\nBlessings,\nIgnite Conference 2025 Team",
+        "options": {
+          "appendAttribution": false,
+          "senderName": "FLA Yadah/Ignite 2025"
+        }
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        1520,
+        848
+      ],
+      "id": "55a448f5-2f16-4461-b5b9-5c0197473639",
+      "name": "Others",
+      "webhookId": "854b27e6-62ee-49f6-a0c7-26b0c75edd28",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "Di6nf8kpW54sYxLa",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        2144,
+        416
+      ],
+      "id": "42b1412a-4442-4552-9fbf-667feb969558",
+      "name": "No Operation, do nothing"
+    },
+    {
+      "parameters": {
+        "operation": "removeItemsSeenInPreviousExecutions",
+        "dedupeValue": "={{ $json['Full Name'] }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.removeDuplicates",
+      "typeVersion": 2,
+      "position": [
+        64,
+        160
+      ],
+      "id": "71b5de38-3246-459c-9bae-d3ce0e2a6847",
+      "name": "Remove Duplicates"
+    },
+    {
+      "parameters": {
+        "pollTimes": {
+          "item": [
+            {
+              "mode": "everyMinute"
+            }
+          ]
+        },
+        "documentId": {
+          "__rl": true,
+          "value": "1cxYvXWRnzOhGF3m-PSctPxQzuXyX43U7b-oJJ6DbDBI",
+          "mode": "list",
+          "cachedResultName": "YADAH/IGNITE 2025Registration",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1cxYvXWRnzOhGF3m-PSctPxQzuXyX43U7b-oJJ6DbDBI/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1cxYvXWRnzOhGF3m-PSctPxQzuXyX43U7b-oJJ6DbDBI/edit#gid=0"
+        },
+        "event": "rowAdded",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheetsTrigger",
+      "typeVersion": 1,
+      "position": [
+        -512,
+        96
+      ],
+      "id": "e14dfcb3-c01d-443b-b63f-9416c2e0b746",
+      "name": "Google Sheets Trigger",
+      "credentials": {
+        "googleSheetsTriggerOAuth2Api": {
+          "id": "Nc25Kwj8KljqKWlW",
+          "name": "Google Sheets Trigger account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $json.Email }}",
+        "subject": "You’re Registered! Get Ready for Ignite Conference 2025 – Rising Above The Tide",
+        "emailType": "text",
+        "message": "=Hello Mr. {{ $json[\"Full Name\"].split(\" \").slice(-1)[0] }},\n\nThank you for registering for Ignite Conference 2025, a life-changing gathering themed “Rising Above The Tide”.\n\n📍 Venue: FirstLove Assembly, Rumuokwuta, Port Harcourt, Rivers State.\n📅 Dates: Wednesday 27th – Sunday 31st August, 2025\n\n✨ Special Invitation: On the opening day, Wednesday 27th August at 5:00PM, you are also warmly invited to join us for the Yadah 5.0 Concert—an evening of intense worship and praise to kick off the conference.\n\n⏰ Schedule Highlights:\nThurs 28th: 5:00PM & 5:30PM\nFri 29th Aug: 9:00AM & 5:30PM\nSun 31st Aug: 7:30AM\n\nThis year’s conference will be a powerful time of revival, teaching, and worship—you don’t want to miss it!\n\nWe can’t wait to see you!\n\nBlessings,\nIgnite Conference 2025 Team",
+        "options": {
+          "appendAttribution": false,
+          "senderName": "FLA Yadah/Ignite 2025"
+        }
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        1344,
+        592
+      ],
+      "id": "12953be4-0412-48f2-a921-a7749a60a18a",
+      "name": "Mr",
+      "webhookId": "854b27e6-62ee-49f6-a0c7-26b0c75edd28",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "Di6nf8kpW54sYxLa",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $json.Email }}",
+        "subject": "You’re Registered! Get Ready for Ignite Conference 2025 – Rising Above The Tide",
+        "emailType": "text",
+        "message": "=Hello {{ $json[\"Full Name\"].split(\" \").slice(-1)[0] }},\n\nWe’re excited to welcome you to Ignite Conference 2025, a life-changing gathering themed “Rising Above The Tide.” Thank you for registering to be part of this powerful experience!\n\n📍 Venue: FirstLove Assembly, Rumuokwuta, Port Harcourt, Rivers State\n📅 Dates: Wednesday 27th – Sunday 31st August, 2025\n\n✨ Special Invitation: On the opening day, Wednesday 27th August at 5:00PM, you’re warmly invited to join us for Yadah 5.0—a powerful worship concert hosted by FirstLove Assembly to kick off the conference with deep praise and joyful celebration.\n\n⏰ Schedule Highlights:\n\nThursday 28th: 5:00PM & 5:30PM\nFriday 29th August: 9:00AM & 5:30PM\nSunday 31st August: 7:30AM\n\nIgnite Conference is hosted by FirstLove Assembly, a vibrant Christian community in Port Harcourt. We’re looking forward to a time of revival, sound teaching, and heartfelt worship. We’re so glad you’ll be a part of it.\n\nIf this is your first time visiting us, our team will be available to welcome and assist you throughout the conference.\n\nWe look forward to seeing you!\n\nWarm regards,\nIgnite Conference 2025 Team",
+        "options": {
+          "appendAttribution": false,
+          "senderName": "FLA Yadah/Ignite 2025"
+        }
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        1120,
+        352
+      ],
+      "id": "c9d35d59-d6de-4c8d-ba1f-60967a9a1ffc",
+      "name": "Non Members",
+      "webhookId": "854b27e6-62ee-49f6-a0c7-26b0c75edd28",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "Di6nf8kpW54sYxLa",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "16fd2bad-e405-48cb-9d35-22ded4f92b2d",
+              "leftValue": "={{ $json['Menbership?'] }}",
+              "rightValue": "No",
+              "operator": {
+                "type": "string",
+                "operation": "contains"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        688,
+        496
+      ],
+      "id": "7418a5a1-8b25-49b3-b8ad-d866ddd2a1f4",
+      "name": "Membership"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "16fd2bad-e405-48cb-9d35-22ded4f92b2d",
+              "leftValue": "={{ $json.Identity }}",
+              "rightValue": "Pastor",
+              "operator": {
+                "type": "string",
+                "operation": "contains"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        368,
+        352
+      ],
+      "id": "bbd730ea-f8f0-4919-aca4-c85246648aaf",
+      "name": "Pastor?"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "5dc06054-d2ad-4bde-b7e8-7a34eb04d17e",
+              "leftValue": "={{ $json.Gender }}",
+              "rightValue": "Male",
+              "operator": {
+                "type": "string",
+                "operation": "contains"
+              }
+            },
+            {
+              "id": "8e5cc9a5-ac47-4bad-a2d3-0b95dfbdce8a",
+              "leftValue": "={{ $json.Identity }}",
+              "rightValue": "Pastor",
+              "operator": {
+                "type": "string",
+                "operation": "notContains"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        944,
+        720
+      ],
+      "id": "f6869954-71cd-4838-ac08-8dfcb9615735",
+      "name": "Males"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -512,
+        352
+      ],
+      "id": "c24879e6-22ef-45c3-9e0e-eaac6e91d374",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1cxYvXWRnzOhGF3m-PSctPxQzuXyX43U7b-oJJ6DbDBI",
+          "mode": "list",
+          "cachedResultName": "YADAH/IGNITE 2025Registration",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1cxYvXWRnzOhGF3m-PSctPxQzuXyX43U7b-oJJ6DbDBI/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1cxYvXWRnzOhGF3m-PSctPxQzuXyX43U7b-oJJ6DbDBI/edit#gid=0"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        -224,
+        352
+      ],
+      "id": "dc4cd8db-8b65-4674-8544-725115f31265",
+      "name": "Get row(s) in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "rqh9xXHyFptBduDj",
+          "name": "Google Sheets account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Add Label": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Pastors": {
+      "main": [
+        [
+          {
+            "node": "Add Label",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Others": {
+      "main": [
+        [
+          {
+            "node": "Add Label",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Remove Duplicates": {
+      "main": [
+        [
+          {
+            "node": "Pastor?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets Trigger": {
+      "main": [
+        [
+          {
+            "node": "Remove Duplicates",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Mr": {
+      "main": [
+        [
+          {
+            "node": "Add Label",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Non Members": {
+      "main": [
+        [
+          {
+            "node": "Add Label",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Pastor?": {
+      "main": [
+        [
+          {
+            "node": "Pastors",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Membership",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Membership": {
+      "main": [
+        [
+          {
+            "node": "Non Members",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Males",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Males": {
+      "main": [
+        [
+          {
+            "node": "Mr",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Others",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "Get row(s) in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get row(s) in sheet": {
+      "main": [
+        [
+          {
+            "node": "Remove Duplicates",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "callerPolicy": "workflowsFromSameOwner",
+    "errorWorkflow": "47b58hjfWGQJTlRD"
+  },
+  "versionId": "cf8039e9-efe0-41f2-ab6a-971b12189820",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "95571243cd38ea4d197abbd401367c60ea36f9071ccb21beae54fdf2966cb310"
+  },
+  "id": "47b58hjfWGQJTlRD",
+  "tags": []
+}
